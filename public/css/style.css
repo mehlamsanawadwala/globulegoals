@@ -1,0 +1,692 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&display=swap');
+
+/* Color Palette & Variables */
+:root {
+  --bg-color: #FAF8F5;
+  --card-bg: #FFFFFF;
+  --text-dark: #1E231A;
+  --text-muted: #5C6356;
+  --accent-gold: #C5A059;
+  --primary-green: #2B3D2E;
+  --primary-green-hover: #1E2B20;
+  --border-color: #E6E2DC;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Typography Helpers */
+.section-tag {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.section-heading {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.section-description {
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 500px;
+  margin-bottom: 24px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  font-family: var(--font-sans);
+}
+
+.btn-primary {
+  background-color: var(--primary-green);
+  color: #FFF;
+}
+.btn-primary:hover {
+  background-color: var(--primary-green-hover);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary-green);
+  border-color: var(--primary-green);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border-color: var(--border-color);
+  color: var(--text-dark);
+}
+
+.btn-link {
+  color: var(--primary-green);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* Navigation Bar */
+.navbar {
+  background: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 42px;
+  width: 42px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+.brand-sub {
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-green);
+}
+
+/* Dropdown Menu Styling */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #FFFFFF;
+  min-width: 150px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  padding: 8px 0;
+  z-index: 1000;
+  border: 1px solid var(--border-color);
+  margin-top: 8px;
+}
+
+.dropdown-content a {
+  color: var(--text-dark);
+  padding: 8px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--bg-color);
+  color: var(--primary-green);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cart-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.cart-btn:hover {
+  background: #FFFFFF;
+  border-color: var(--primary-green);
+  color: var(--primary-green);
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 60px 0;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  line-height: 1.05;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.hero-subtext {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 30px;
+  max-width: 450px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.hero-features {
+  display: flex;
+  gap: 20px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Rounded Arch Image Framing */
+.arch-frame {
+  width: 100%;
+  max-width: 400px;
+  height: 500px;
+  border-radius: 200px 200px 0 0;
+  overflow: hidden;
+  background-color: #E2DDD5;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.arch-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Meet Your Practitioner / Pillars */
+.practitioner-section {
+  padding: 80px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.pillar-card {
+  background: var(--card-bg);
+  padding: 28px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+}
+
+.pillar-num {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.pillar-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  margin: 12px 0 8px;
+}
+
+.pillar-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Products Section */
+.products-section {
+  padding: 80px 0;
+  background: #F4F1EA;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.product-image-container {
+  position: relative;
+  height: 280px;
+  background: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.product-brand {
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.product-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  margin: 6px 0 8px;
+}
+
+.product-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.discount-tag {
+  display: inline-block;
+  background: #E8F0E9;
+  color: var(--primary-green);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.product-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-color);
+  padding-top: 16px;
+  margin-bottom: 16px;
+}
+
+.product-price {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.product-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+/* Journal Section */
+.journal-section {
+  padding: 80px 0;
+}
+
+.journal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.journal-card {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+}
+
+.card-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--accent-gold);
+}
+
+.journal-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  margin: 10px 0 8px;
+}
+
+.journal-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+/* Appointments Section */
+.appointment-section {
+  padding: 80px 0;
+  background: #F4F1EA;
+}
+
+.appointment-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.notice-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid var(--primary-green);
+  margin-top: 24px;
+  border: 1px solid var(--border-color);
+  border-left-width: 4px;
+}
+
+.notice-box strong { font-size: 0.9rem; display: block; margin-bottom: 4px; }
+.notice-box p { font-size: 0.85rem; color: var(--text-muted); }
+
+.appointment-form {
+  background: white;
+  padding: 36px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  background: #FAF8F5;
+  color: var(--text-dark);
+  outline: none;
+}
+
+input:focus, select:focus {
+  border-color: var(--primary-green);
+  background: white;
+}
+
+/* Footer */
+.footer {
+  background: var(--primary-green);
+  color: white;
+  padding: 60px 0 30px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  padding-bottom: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.footer-brand .logo-img {
+  height: 50px;
+  width: 50px;
+}
+
+.footer-brand h3 {
+  font-family: var(--font-serif);
+  margin: 12px 0 8px;
+  font-size: 1.3rem;
+}
+
+.footer-brand p { font-size: 0.9rem; opacity: 0.8; }
+
+.footer-links h4, .footer-contact h4 {
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 16px;
+  color: var(--accent-gold);
+}
+
+.footer-links ul { list-style: none; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a { color: white; text-decoration: none; font-size: 0.9rem; opacity: 0.8; transition: opacity 0.2s; }
+.footer-links a:hover { opacity: 1; }
+
+.footer-contact p { font-size: 0.9rem; opacity: 0.8; margin-bottom: 8px; }
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 24px;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* Responsive Scaling */
+@media (max-width: 768px) {
+  .hero-container, .appointment-wrapper, .products-grid, .pillars-grid, .journal-grid, .footer-content {
+    grid-template-columns: 1fr;
+  }
+  .nav-links { display: none; }
+  .hero-title { font-size: 2.8rem; }
+}
+
+.appointment-buttons-container {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #FDFBF7; /* Calming cream background */
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.appointment-title {
+    font-family: Georgia, serif;
+    color: #2C4C3B; /* Deep forest green */
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.appointment-subtitle {
+    font-family: sans-serif;
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+.btn-aesthetic {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 320px;
+    padding: 16px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Initial Consultation Button (Primary) */
+.btn-primary {
+    background-color: #2C4C3B;
+    color: #ffffff;
+    border: 2px solid #2C4C3B;
+}
+
+.btn-primary:hover {
+    background-color: #1e3629;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(44, 76, 59, 0.3);
+}
+
+/* Follow-up Button (Secondary) */
+.btn-secondary {
+    background-color: transparent;
+    color: #2C4C3B;
+    border: 2px solid #2C4C3B;
+}
+
+.btn-secondary:hover {
+    background-color: #f0eee7;
+    transform: translateY(-2px);
+}
+
+.btn-price {
+    font-weight: normal;
+    opacity: 0.9;
+}
